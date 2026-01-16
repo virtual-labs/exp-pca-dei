@@ -1,9 +1,9 @@
 ## Introduction
 
-<b>Discipline | <b>Electrical Engineering
+<b>Discipline | <b>Computer Science and Engineering
 :--|:--|
 <b> Lab | <b> Machine Learning Virtual Lab
-<b> Experiment|     <b> EXP-9: Principal Component Analysis (PCA)
+<b> Experiment|     <b> EXP-10: Principal Component Analysis (PCA)
 
 ### About the Experiment 
 
@@ -23,3 +23,4 @@ SrNo | Name | Faculty or Student | Department| Institute | Email id
 2 | Dr. K. Srinivas | Faculty | Electrical Engineering | Dayalbagh Educational Institute | ksrinivas@dei.ac.in
 3 | Deeksha Saraswat | Student | Electrical Engineering | Dayalbagh Educational Institute | deekshasaraswat01@gmail.com
 4 | Anshika Singh | Student | Electrical Engineering | Dayalbagh Educational Institute | singhanshikaa03@gmail.com
+5 | Sumir Singh | Student | Electrical Engineering | Dayalbagh Educational Institute | sumirsingh19@gmail.com

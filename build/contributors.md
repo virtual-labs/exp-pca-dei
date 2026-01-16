@@ -9,5 +9,6 @@
 | SNo. | Name | Email | Institute | ID |
 | :---: | :---: | :---: | :---: | :---: |
 | 1 | Deeksha Saraswat | deekshasaraswat01@gmail.com | Dayalbagh Educational Institute | 1 |
-| 2 | Anshika Singh | singhanshikaa03@gmail.com | Dayalbagh Educational Institute | 2 |
-| 3 | Rohit | 3337.rohit64@gmail.com | Dayalbagh Educational Institute | 3 |
+| 2 | Rohit | 3337.rohit64@gmail.com | Dayalbagh Educational Institute | 2 |
+| 3 | Anshika Singh | singhanshikaa03@gmail.com | Dayalbagh Educational Institute | 3 |
+| 4 | Sumir Singh | sumirsingh19@gmail.com | Dayalbagh Educational Institute | 4 |
