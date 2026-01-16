@@ -1,1 +1,1 @@
-## Principal Component Analysis (PCA) 
+## Dimensionality Reduction: Principal Component Analysis (PCA)

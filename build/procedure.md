@@ -1,5 +1,3 @@
-### Procedure
-
 The objective of this experiment is to determine whether a breast tumor is malignant or benign by applying Principal Component Analysis (PCA) to the Wisconsin Breast Cancer dataset. By transforming the original 30 features into a smaller set of principal components, the experiment aims to simplify the dataset, reduce redundancy, and improve visualization and model efficiency without significantly affecting classification performance.
 
 **Step 1:** Import required libraries: pandas, numpy, matplotlib, seaborn, and required modules from scikit-learn.
