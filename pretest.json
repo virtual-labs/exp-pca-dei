@@ -1,0 +1,175 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "Principal Component Analysis (PCA) belongs to which type of learning?",
+      "answers": {
+        "a": "Supervised learning",
+        "b": "Reinforcement learning",
+        "c": "Unsupervised learning",
+        "d": "Semi-supervised learning"
+      },
+      "explanations": {
+        "a": "Incorrect: PCA does not use labeled data.",
+        "b": "Incorrect: PCA does not involve reward-based learning.",
+        "c": "Correct: PCA learns patterns from data without using labels.",
+        "d": "Incorrect: PCA does not require partially labeled data."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "The main purpose of PCA is to:",
+      "answers": {
+        "a": "Increase the number of variables",
+        "b": "Perform classification",
+        "c": "Reduce dimensionality while retaining important information",
+        "d": "Normalize data"
+      },
+      "explanations": {
+        "a": "Incorrect: PCA reduces the number of variables.",
+        "b": "Incorrect: PCA is not a classification algorithm.",
+        "c": "Correct: PCA compresses data while preserving maximum information.",
+        "d": "Incorrect: PCA may need normalization but does not perform it as its goal."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "PCA reduces data dimensions by:",
+      "answers": {
+        "a": "Eliminating random features",
+        "b": "Projecting data onto a lower-dimensional subspace",
+        "c": "Removing all original variables",
+        "d": "Converting numerical data to categorical data"
+      },
+      "explanations": {
+        "a": "Incorrect: PCA does not randomly remove features.",
+        "b": "Correct: PCA projects data into fewer principal components.",
+        "c": "Incorrect: PCA transforms features instead of deleting them.",
+        "d": "Incorrect: PCA works only on numerical data."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "The first principal component captures:",
+      "answers": {
+        "a": "Minimum variance",
+        "b": "Average variance",
+        "c": "Maximum variance in the data",
+        "d": "Noise in the data"
+      },
+      "explanations": {
+        "a": "Incorrect: PCA captures maximum variance first.",
+        "b": "Incorrect: PCA does not compute average variance components.",
+        "c": "Correct: The first component explains the largest data variation.",
+        "d": "Incorrect: PCA does not specifically isolate noise."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Principal components in PCA are:",
+      "answers": {
+        "a": "Dependent on each other",
+        "b": "Parallel to each other",
+        "c": "Orthogonal to each other",
+        "d": "Identical to original features"
+      },
+      "explanations": {
+        "a": "Incorrect: Principal components are independent.",
+        "b": "Incorrect: Parallel components would contain redundant information.",
+        "c": "Correct: PCA components are perpendicular and uncorrelated.",
+        "d": "Incorrect: Components are combinations of original features."
+      },
+      "correctAnswer": "c",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "One utility of PCA is that reduced features can be:",
+      "answers": {
+        "a": "Ignored after reduction",
+        "b": "Used only for visualization",
+        "c": "Used as input to supervised learning algorithms",
+        "d": "Used only for clustering"
+      },
+      "explanations": {
+        "a": "Incorrect: Reduced features still contain useful information.",
+        "b": "Incorrect: PCA features are useful beyond visualization.",
+        "c": "Correct: PCA features can be used for model training.",
+        "d": "Incorrect: PCA is not limited to clustering tasks."
+      },
+      "correctAnswer": "c",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "In PCA, eigenvectors represent:",
+      "answers": {
+        "a": "Data points",
+        "b": "Error terms",
+        "c": "Directions of maximum variance",
+        "d": "Output labels"
+      },
+      "explanations": {
+        "a": "Incorrect: Eigenvectors represent directions, not samples.",
+        "b": "Incorrect: PCA does not model error terms.",
+        "c": "Correct: Eigenvectors define directions of maximum spread.",
+        "d": "Incorrect: PCA does not use labels."
+      },
+      "correctAnswer": "c",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "Eigenvalues in PCA indicate:",
+      "answers": {
+        "a": "Number of features",
+        "b": "Direction of data projection",
+        "c": "Amount of variance explained by each principal component",
+        "d": "Class probabilities"
+      },
+      "explanations": {
+        "a": "Incorrect: Eigenvalues do not represent feature count.",
+        "b": "Incorrect: Directions are defined by eigenvectors.",
+        "c": "Correct: Eigenvalues measure variance captured by components.",
+        "d": "Incorrect: PCA does not compute class probabilities."
+      },
+      "correctAnswer": "c",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "Eigenvectors and eigenvalues are obtained from the:",
+      "answers": {
+        "a": "Distance matrix",
+        "b": "Identity matrix",
+        "c": "Covariance matrix",
+        "d": "Correlation matrix only"
+      },
+      "explanations": {
+        "a": "Incorrect: PCA is not based on distance matrices.",
+        "b": "Incorrect: Identity matrix contains no variance information.",
+        "c": "Correct: PCA uses covariance matrix decomposition.",
+        "d": "Incorrect: Correlation matrix is optional, not mandatory."
+      },
+      "correctAnswer": "c",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "Principal components are selected mainly based on:",
+      "answers": {
+        "a": "Random order",
+        "b": "Original feature names",
+        "c": "Magnitude of eigenvalues",
+        "d": "Data size"
+      },
+      "explanations": {
+        "a": "Incorrect: PCA components are ranked systematically.",
+        "b": "Incorrect: Feature names do not affect PCA.",
+        "c": "Correct: Higher eigenvalues indicate more important components.",
+        "d": "Incorrect: Dataset size does not determine component importance."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    }
+  ]
+}

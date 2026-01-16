@@ -1,0 +1,175 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "In the experiment, why is the dataset standardized before applying Principal Component Analysis?",
+      "answers": {
+        "a": "To remove correlated features",
+        "b": "To convert categorical variables into numerical form",
+        "c": "To ensure that all features contribute equally to the computation of principal components",
+        "d": "To reduce the number of samples"
+      },
+      "explanations": {
+        "a": "Incorrect: Standardization does not remove correlation between features.",
+        "b": "Incorrect: Standardization does not convert categorical data into numerical form.",
+        "c": "Correct: Standardization ensures that all features have equal scale and influence.",
+        "d": "Incorrect: Standardization does not change the number of samples."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Which observation is made when the shape of the dataset is displayed before applying PCA?",
+      "answers": {
+        "a": "The number of samples is reduced",
+        "b": "The target labels are removed",
+        "c": "The number of features decreases after PCA transformation",
+        "d": "The dataset becomes unbalanced"
+      },
+      "explanations": {
+        "a": "Incorrect: PCA does not reduce the number of samples.",
+        "b": "Incorrect: PCA does not remove target labels.",
+        "c": "Correct: PCA reduces dimensionality by lowering feature count.",
+        "d": "Incorrect: PCA does not affect class balance."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Why is feature correlation an important factor when deciding to apply PCA?",
+      "answers": {
+        "a": "PCA works only on uncorrelated features",
+        "b": "Highly correlated features contain redundant information",
+        "c": "Correlation improves classification accuracy",
+        "d": "Correlation removes noise from data"
+      },
+      "explanations": {
+        "a": "Incorrect: PCA is specifically useful for correlated features.",
+        "b": "Correct: Correlated features represent overlapping information that PCA compresses.",
+        "c": "Incorrect: Correlation does not directly improve accuracy.",
+        "d": "Incorrect: Correlation does not remove noise."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "Which mathematical property allows PCA to transform original features into independent components?",
+      "answers": {
+        "a": "Feature normalization",
+        "b": "Eigen decomposition of the covariance matrix",
+        "c": "Gradient descent optimization",
+        "d": "Probability density estimation"
+      },
+      "explanations": {
+        "a": "Incorrect: Normalization only scales features.",
+        "b": "Correct: PCA uses eigenvectors of the covariance matrix to create new components.",
+        "c": "Incorrect: PCA does not use gradient descent.",
+        "d": "Incorrect: PCA is not a probabilistic method."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "What is the implication of choosing a 95% explained variance threshold in PCA?",
+      "answers": {
+        "a": "Exactly 95% of features are retained",
+        "b": "Exactly 95 principal components are created",
+        "c": "Enough components are selected to preserve 95% of data variability",
+        "d": "The classifier will achieve 95% accuracy"
+      },
+      "explanations": {
+        "a": "Incorrect: PCA selects components based on variance, not feature count.",
+        "b": "Incorrect: The number of components depends on variance distribution.",
+        "c": "Correct: Components are chosen such that 95% variance is preserved.",
+        "d": "Incorrect: Explained variance does not guarantee accuracy."
+      },
+      "correctAnswer": "c",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "Why is PCA considered an unsupervised dimensionality reduction technique?",
+      "answers": {
+        "a": "Because it removes noisy labels",
+        "b": "Because it improves supervised learning models",
+        "c": "Because it does not use class labels while learning transformations",
+        "d": "Because it balances the dataset"
+      },
+      "explanations": {
+        "a": "Incorrect: PCA does not use labels at all.",
+        "b": "Incorrect: PCA can be used with supervised models but is not supervised itself.",
+        "c": "Correct: PCA learns from feature distribution without using labels.",
+        "d": "Incorrect: PCA does not perform class balancing."
+      },
+      "correctAnswer": "c",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "Why is classification accuracy evaluated both before and after PCA?",
+      "answers": {
+        "a": "To confirm that PCA increases training complexity",
+        "b": "To ensure that dimensionality reduction does not degrade predictive performance",
+        "c": "To eliminate bias in dataset",
+        "d": "To increase the number of training samples"
+      },
+      "explanations": {
+        "a": "Incorrect: PCA usually reduces training complexity.",
+        "b": "Correct: Accuracy comparison validates PCA's impact on model performance.",
+        "c": "Incorrect: PCA does not remove dataset bias.",
+        "d": "Incorrect: PCA does not create new samples."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "Which statement best explains why PCA can improve computational efficiency?",
+      "answers": {
+        "a": "It increases the number of training samples",
+        "b": "It simplifies the decision boundary",
+        "c": "It reduces dimensionality, lowering computation and memory cost",
+        "d": "It converts nonlinear data into linear form"
+      },
+      "explanations": {
+        "a": "Incorrect: PCA does not increase samples.",
+        "b": "Incorrect: PCA does not directly modify decision boundaries.",
+        "c": "Correct: Fewer features reduce computational and storage requirements.",
+        "d": "Incorrect: PCA is a linear transformation."
+      },
+      "correctAnswer": "c",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "What does a low explained variance ratio for a principal component indicate?",
+      "answers": {
+        "a": "The component has high predictive power",
+        "b": "The component captures little information from the data",
+        "c": "The component removes noise completely",
+        "d": "The component improves classification accuracy"
+      },
+      "explanations": {
+        "a": "Incorrect: Low variance does not imply high predictive power.",
+        "b": "Correct: Low explained variance means the component contributes little information.",
+        "c": "Incorrect: PCA does not guarantee noise removal.",
+        "d": "Incorrect: Explained variance does not directly determine accuracy."
+      },
+      "correctAnswer": "b",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "Why are PCA feature loadings important for model interpretability?",
+      "answers": {
+        "a": "They remove irrelevant samples",
+        "b": "They show how original features contribute to each principal component",
+        "c": "They improve classifier accuracy",
+        "d": "They normalize the dataset"
+      },
+      "explanations": {
+        "a": "Incorrect: Loadings do not remove samples.",
+        "b": "Correct: Loadings explain the influence of original features on components.",
+        "c": "Incorrect: Loadings do not directly affect accuracy.",
+        "d": "Incorrect: Loadings are not used for normalization."
+      },
+      "correctAnswer": "b",
+      "difficulty": "advanced"
+    }
+  ]
+}
