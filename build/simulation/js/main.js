@@ -615,6 +615,6 @@ init();
 // PDF Download Logic
 function downloadPDF() {
     // Redirect to the PDF file for download
-    window.open('../assets/EXP-10.pdf', '_blank');
+    window.open('./assets/EXP-10.pdf', '_blank');
 }
 
