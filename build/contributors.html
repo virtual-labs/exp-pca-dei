@@ -26,7 +26,7 @@
     	<meta name="experiment-short-name" content="pca">
     	<meta name="developer-institute" content="DLBG">
     	<meta name="learning-unit" content="DIMENSIONALITY REDUCTION: PRINCIPAL COMPONENT ANALYSIS (PCA)">
-    	<meta name="task-name" content="Theory">
+    	<meta name="task-name" content="Contributors">
     
     <!-- For iPhone -->
     <meta name="msapplication-TileColor" content="#4076e0">
@@ -139,7 +139,7 @@
                               </div>
                               <div>
                                   <div class="d-flex nav-menu-body">
-                                      <a href="theory.html" class="p-2  current-item ">
+                                      <a href="theory.html" class="p-2 ">
                                       Theory
                                       </a>
                                       
@@ -211,7 +211,7 @@
                               </div>
                               <div>
                                   <div class="d-flex nav-menu-body">
-                                      <a href="contributors.html" class="p-2 ">
+                                      <a href="contributors.html" class="p-2  current-item ">
                                       Contributors
                                       </a>
                                       
@@ -252,7 +252,7 @@
                 </div>
                 <div>
                     <div class="d-flex nav-menu-body">
-                        <a href="theory.html" class="p-2  current-item ">
+                        <a href="theory.html" class="p-2 ">
                         Theory
                         </a>
                         
@@ -324,7 +324,7 @@
                 </div>
                 <div>
                     <div class="d-flex nav-menu-body">
-                        <a href="contributors.html" class="p-2 ">
+                        <a href="contributors.html" class="p-2  current-item ">
                         Contributors
                         </a>
                         
@@ -351,35 +351,65 @@
               <h2 id="dimensionality-reduction-principal-component-analysis-pca">Dimensionality Reduction: Principal Component Analysis (PCA)</h2>
           
             </div>
-              <p>Principal Component Analysis (PCA) is a dimensionality reduction technique used in unsupervised learning to transform a dataset with many variables into a smaller set that still contains most of the essential information. PCA helps us get rid of non-important features. It helps in faster training and inference, and even data visualization becomes easier. High-dimensional data often includes correlated features, which increase computational complexity and make data interpretation difficult. PCA addresses this problem by transforming the original variables into a new set of uncorrelated variables, called principal components, while retaining as much of the original information as possible.</p>
-          <h4 id="1-objective-of-pca">1. Objective of PCA</h4>
-          <p>The objective of PCA is to identify directions in the feature space along which the variance of the data is maximized. The diagram shows how a dataset with many correlated features is first represented in a high-dimensional space. PCA then identifies new axes called principal components that point in the directions of maximum data spread. The original data points are projected onto these new axes, resulting in a reduced-dimensional dataset that still preserves most of the important information.</p>
-          <h4 id="2-mathematical-foundation">2. Mathematical Foundation</h4>
-          <p>The mathematical foundation of PCA lies in linear algebra, specifically in eigenvectors and eigenvalues. Eigenvectors define the directions of maximum variance in the data, while eigenvalues indicate the amount of variance explained by each direction.</p>
-          <div style="text-align: center;">
-          <img src="images/pca.jpg" alt="PCA Visualization" style="max-height: 300px; width: auto;">
-          </div>
-          
-          <p>For a square matrix A, an eigenvector v and its corresponding eigenvalue λ satisfy the equation:</p>
-          <div style="text-align: center; margin: 15px 0;">
-          <span style="display: inline-block; padding: 10px 20px; border: 1px solid #ccc; background-color: #f9f9f9; font-style: italic;">Av = λv</span>
-          </div>
-          
-          <p>In PCA, eigenvectors and eigenvalues are derived from the covariance matrix of the data. Eigenvectors associated with larger eigenvalues correspond to more informative principal components. These eigenvectors are normalized to unit length before being used for projection.</p>
-          <h4 id="3-dimensionality-reduction">3. Dimensionality Reduction</h4>
-          <p>By projecting the data onto a smaller number of important principal components, PCA reduces the number of features while keeping most of the useful information. Only the components that capture a large amount of variation in the data are selected. This way, PCA makes the dataset simpler and easier to work with without losing its essential patterns.</p>
-          <h4 id="4-merits-of-using-pca">4. Merits of Using PCA</h4>
-          <ul>
-          <li>Makes large and complex data easier to handle by reducing the number of features</li>
-          <li>Removes repeated or similar information from the dataset</li>
-          <li>Helps models run faster and more efficiently</li>
-          </ul>
-          <h4 id="5-demerits-of-using-pca">5. Demerits of Using PCA</h4>
-          <ul>
-          <li>New features created by PCA are hard to understand and explain</li>
-          <li>Some useful information may be lost during reduction</li>
-          <li>Does not work well when data has non-linear patterns</li>
-          </ul>
+              <h3 id="subject-matter-experts">Subject Matter Experts</h3>
+          <table>
+          <thead>
+          <tr>
+          <th align="center">SNo.</th>
+          <th align="center">Name</th>
+          <th align="center">Email</th>
+          <th align="center">Institute</th>
+          <th align="center">ID</th>
+          </tr>
+          </thead>
+          <tbody><tr>
+          <td align="center">1</td>
+          <td align="center">Dr. A. Charan Kumari</td>
+          <td align="center"><a href="mailto:charankumari@dei.ac.in">charankumari@dei.ac.in</a></td>
+          <td align="center">Dayalbagh Educational Institute</td>
+          <td align="center">1</td>
+          </tr>
+          <tr>
+          <td align="center">2</td>
+          <td align="center">Dr. K. Srinivas</td>
+          <td align="center"><a href="mailto:ksrinivas@dei.ac.in">ksrinivas@dei.ac.in</a></td>
+          <td align="center">Dayalbagh Educational Institute</td>
+          <td align="center">2</td>
+          </tr>
+          </tbody></table>
+          <h3 id="developers">Developers</h3>
+          <table>
+          <thead>
+          <tr>
+          <th align="center">SNo.</th>
+          <th align="center">Name</th>
+          <th align="center">Email</th>
+          <th align="center">Institute</th>
+          <th align="center">ID</th>
+          </tr>
+          </thead>
+          <tbody><tr>
+          <td align="center">1</td>
+          <td align="center">Deeksha Saraswat</td>
+          <td align="center"><a href="mailto:deekshasaraswat01@gmail.com">deekshasaraswat01@gmail.com</a></td>
+          <td align="center">Dayalbagh Educational Institute</td>
+          <td align="center">1</td>
+          </tr>
+          <tr>
+          <td align="center">2</td>
+          <td align="center">Anshika Singh</td>
+          <td align="center"><a href="mailto:singhanshikaa03@gmail.com">singhanshikaa03@gmail.com</a></td>
+          <td align="center">Dayalbagh Educational Institute</td>
+          <td align="center">2</td>
+          </tr>
+          <tr>
+          <td align="center">3</td>
+          <td align="center">Rohit</td>
+          <td align="center"><a href="mailto:3337.rohit64@gmail.com">3337.rohit64@gmail.com</a></td>
+          <td align="center">Dayalbagh Educational Institute</td>
+          <td align="center">3</td>
+          </tr>
+          </tbody></table>
           
           </div>
           <div class="bug-report-mobile">
