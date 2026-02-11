@@ -349,11 +349,11 @@
                         </div>
                     </div>
                 </div>
-          </div>            <div class="vlabs-page-content px-5 pb-4 flex-grow-1 markdown-body">
-              <div class="text-center fix-spacing">
-                <h2 id="dimensionality-reduction-principal-component-analysis-pca">Dimensionality Reduction: Principal Component Analysis (PCA)</h2>
+          </div>          <div class="vlabs-page-content px-5 pb-4 flex-grow-1 markdown-body">
+            <div class="text-center fix-spacing">
+              <h2 id="dimensionality-reduction-principal-component-analysis-pca">Dimensionality Reduction: Principal Component Analysis (PCA)</h2>
           
-              </div>
+            </div>
               <p>Principal Component Analysis (PCA) is a dimensionality reduction technique used in unsupervised learning to transform a dataset with many variables into a smaller set that still contains most of the essential information. PCA helps us get rid of non-important features. It helps in faster training and inference, and even data visualization becomes easier. High-dimensional data often includes correlated features, which increase computational complexity and make data interpretation difficult. PCA addresses this problem by transforming the original variables into a new set of uncorrelated variables, called principal components, while retaining as much of the original information as possible.</p>
           <h4 id="1-objective-of-pca">1. Objective of PCA</h4>
           <p>The objective of PCA is to identify directions in the feature space along which the variance of the data is maximized. The diagram shows how a dataset with many correlated features is first represented in a high-dimensional space. PCA then identifies new axes called principal components that point in the directions of maximum data spread. The original data points are projected onto these new axes, resulting in a reduced-dimensional dataset that still preserves most of the important information.</p>
@@ -383,8 +383,53 @@
           <li>Some useful information may be lost during reduction</li>
           <li>Does not work well when data has non-linear patterns</li>
           </ul>
+          <h4 id="6-algorithm">6. Algorithm</h4>
+          <ol>
+          <li><strong>Step 1: Standardize the data:</strong><ul>
+          <li>For each feature: <code>x_scaled = (x - mean) / standard_deviation</code></li>
+          <li>Result: All features have mean=0, std=1</li>
+          </ul>
+          </li>
+          <li><strong>Step 2: Compute the Covariance Matrix:</strong><ul>
+          <li><code>Cov(X) = (1/(n-1)) × XᵀX</code></li>
+          <li>Matrix size: d × d (where d = number of features)</li>
+          <li>Element [i,j] = covariance between feature i and feature j</li>
+          </ul>
+          </li>
+          <li><strong>Step 3: Calculate Eigenvalues and Eigenvectors:</strong><ul>
+          <li>Solve: <code>Cov(X) × v = λ × v</code></li>
+          <li>λ = eigenvalue (represents variance captured)</li>
+          <li>v = eigenvector (represents new axis direction)</li>
+          </ul>
+          </li>
+          <li><strong>Step 4: Sort by Eigenvalues:</strong><ul>
+          <li>Arrange eigenvectors in descending order of their eigenvalues</li>
+          <li>First eigenvector = direction of maximum variance</li>
+          <li>Second eigenvector = direction of second-most variance (orthogonal to first)</li>
+          </ul>
+          </li>
+          <li><strong>Step 5: Calculate Explained Variance Ratio:</strong><ul>
+          <li>For each component: <code>ratio = λᵢ / Σλ</code></li>
+          <li>Cumulative ratio shows total variance captured by first k components</li>
+          </ul>
+          </li>
+          <li><strong>Step 6: Select Top k Components:</strong><ul>
+          <li>Choose k such that cumulative variance ≥ threshold (e.g., 95%)</li>
+          <li><strong>OR</strong> choose k based on specific requirement</li>
+          </ul>
+          </li>
+          <li><strong>Step 7: Create Projection Matrix:</strong><ul>
+          <li>W = matrix with top k eigenvectors as columns</li>
+          </ul>
+          </li>
+          <li><strong>Step 8: Transform Data:</strong><ul>
+          <li><code>X_reduced = X_standardized × W</code></li>
+          <li>New data has k dimensions instead of original d dimensions</li>
+          </ul>
+          </li>
+          </ol>
           
-            </div>
+          </div>
           <div class="bug-report-mobile">
               <bug-report id="bug-report" title="[BUG REPORT] DIMENSIONALITY REDUCTION: PRINCIPAL COMPONENT ANALYSIS (PCA)" page-type="text" context-info="{&quot;organisation&quot;:&quot;Virtual Labs&quot;,&quot;developer_institute&quot;:&quot;DLBG&quot;,&quot;expname&quot;:&quot;DIMENSIONALITY REDUCTION: PRINCIPAL COMPONENT ANALYSIS (PCA)&quot;,&quot;labname&quot;:&quot;Virtual Lab&quot;,&quot;phase&quot;:&quot;Testing&quot;}" checkbox-json="{&quot;text&quot;:[&quot;Insufficient Content&quot;],&quot;video&quot;:[&quot;Insufficient Content&quot;],&quot;assesment&quot;:[&quot;Incorrect Options&quot;,&quot;Incorrect Answer&quot;,&quot;Incorrect Question&quot;],&quot;assessment&quot;:[&quot;Incorrect Options&quot;,&quot;Incorrect Answer&quot;,&quot;Incorrect Question&quot;],&quot;simulation&quot;:[&quot;Simulation Not Working&quot;,&quot;Incorrect Results/Observations&quot;,&quot;Insufficient/Incorrect Instructions&quot;],&quot;DEFAULT&quot;:[&quot;Page Not Loading&quot;,&quot;Content Not Visible&quot;,&quot;Incorrect Content&quot;]}" position="override" button_style="
                           position: fixed; 
