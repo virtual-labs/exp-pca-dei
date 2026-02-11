@@ -35,3 +35,33 @@ By projecting the data onto a smaller number of important principal components, 
 - New features created by PCA are hard to understand and explain
 - Some useful information may be lost during reduction
 - Does not work well when data has non-linear patterns
+
+#### 6. Algorithm
+
+1. **Step 1: Standardize the data:**
+    - For each feature: `x_scaled = (x - mean) / standard_deviation`
+    - Result: All features have mean=0, std=1
+2. **Step 2: Compute the Covariance Matrix:**
+    - `Cov(X) = (1/(n-1)) × XᵀX`
+    - Matrix size: d × d (where d = number of features)
+    - Element [i,j] = covariance between feature i and feature j
+3. **Step 3: Calculate Eigenvalues and Eigenvectors:**
+    - Solve: `Cov(X) × v = λ × v`
+    - λ = eigenvalue (represents variance captured)
+    - v = eigenvector (represents new axis direction)
+4. **Step 4: Sort by Eigenvalues:**
+    - Arrange eigenvectors in descending order of their eigenvalues
+    - First eigenvector = direction of maximum variance
+    - Second eigenvector = direction of second-most variance (orthogonal to first)
+5. **Step 5: Calculate Explained Variance Ratio:**
+    - For each component: `ratio = λᵢ / Σλ`
+    - Cumulative ratio shows total variance captured by first k components
+6. **Step 6: Select Top k Components:**
+    - Choose k such that cumulative variance ≥ threshold (e.g., 95%)
+    - **OR** choose k based on specific requirement
+7. **Step 7: Create Projection Matrix:**
+    - W = matrix with top k eigenvectors as columns
+8. **Step 8: Transform Data:**
+    - `X_reduced = X_standardized × W`
+    - New data has k dimensions instead of original d dimensions
+

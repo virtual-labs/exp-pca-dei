@@ -375,6 +375,8 @@ widgets.interact(interactive_pca, pc_num=widgets.IntSlider(min=1,max=10,step=1,v
 ];
 
 // State Management
+let hasCompletedOnce = sessionStorage.getItem('pca_completed') === 'true';
+
 let STATE = {
     stepIndex: 0,
     subStepIndex: 0,
@@ -444,8 +446,8 @@ function renderSidebar() {
     downloadBtn.style.textAlign = 'center';
     downloadBtn.style.marginTop = "10px";
     
-    // Check if all steps are completed
-    const allCompleted = checkAllStepsCompleted();
+    // Check if all steps are completed (or were completed before a restart)
+    const allCompleted = checkAllStepsCompleted() || hasCompletedOnce;
     if (allCompleted) {
         downloadBtn.style.backgroundColor = "#F57C2A";
         downloadBtn.style.color = "white";
@@ -612,6 +614,8 @@ function highlightCode(code) {
 }
 
 function showCompletion() {
+    hasCompletedOnce = true;
+    sessionStorage.setItem('pca_completed', 'true');
     outputDisplay.innerHTML = `
     <style>
       @keyframes clap {
