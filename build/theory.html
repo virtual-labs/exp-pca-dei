@@ -384,50 +384,50 @@
           <li>Does not work well when data has non-linear patterns</li>
           </ul>
           <h4 id="6-algorithm">6. Algorithm</h4>
-          <ol>
-          <li><strong>Step 1: Standardize the data:</strong><ul>
+          <ul>
+          <li><strong>Step 1:</strong> Standardize the data:<ul>
           <li>For each feature: <code>x_scaled = (x - mean) / standard_deviation</code></li>
           <li>Result: All features have mean=0, std=1</li>
           </ul>
           </li>
-          <li><strong>Step 2: Compute the Covariance Matrix:</strong><ul>
+          <li><strong>Step 2:</strong> Compute the Covariance Matrix:<ul>
           <li><code>Cov(X) = (1/(n-1)) × XᵀX</code></li>
           <li>Matrix size: d × d (where d = number of features)</li>
           <li>Element [i,j] = covariance between feature i and feature j</li>
           </ul>
           </li>
-          <li><strong>Step 3: Calculate Eigenvalues and Eigenvectors:</strong><ul>
+          <li><strong>Step 3:</strong> Calculate Eigenvalues and Eigenvectors:<ul>
           <li>Solve: <code>Cov(X) × v = λ × v</code></li>
           <li>λ = eigenvalue (represents variance captured)</li>
           <li>v = eigenvector (represents new axis direction)</li>
           </ul>
           </li>
-          <li><strong>Step 4: Sort by Eigenvalues:</strong><ul>
+          <li><strong>Step 4:</strong> Sort by Eigenvalues:<ul>
           <li>Arrange eigenvectors in descending order of their eigenvalues</li>
           <li>First eigenvector = direction of maximum variance</li>
           <li>Second eigenvector = direction of second-most variance (orthogonal to first)</li>
           </ul>
           </li>
-          <li><strong>Step 5: Calculate Explained Variance Ratio:</strong><ul>
+          <li><strong>Step 5:</strong> Calculate Explained Variance Ratio:<ul>
           <li>For each component: <code>ratio = λᵢ / Σλ</code></li>
           <li>Cumulative ratio shows total variance captured by first k components</li>
           </ul>
           </li>
-          <li><strong>Step 6: Select Top k Components:</strong><ul>
+          <li><strong>Step 6:</strong> Select Top k Components:<ul>
           <li>Choose k such that cumulative variance ≥ threshold (e.g., 95%)</li>
           <li><strong>OR</strong> choose k based on specific requirement</li>
           </ul>
           </li>
-          <li><strong>Step 7: Create Projection Matrix:</strong><ul>
+          <li><strong>Step 7:</strong> Create Projection Matrix:<ul>
           <li>W = matrix with top k eigenvectors as columns</li>
           </ul>
           </li>
-          <li><strong>Step 8: Transform Data:</strong><ul>
+          <li><strong>Step 8:</strong> Transform Data:<ul>
           <li><code>X_reduced = X_standardized × W</code></li>
           <li>New data has k dimensions instead of original d dimensions</li>
           </ul>
           </li>
-          </ol>
+          </ul>
           
           </div>
           <div class="bug-report-mobile">
