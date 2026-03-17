@@ -349,87 +349,130 @@
                         </div>
                     </div>
                 </div>
-          </div>          <div class="vlabs-page-content px-5 pb-4 flex-grow-1 markdown-body">
-            <div class="text-center fix-spacing">
-              <h2 id="dimensionality-reduction-principal-component-analysis-pca">Dimensionality Reduction: Principal Component Analysis (PCA)</h2>
+          </div>            <div class="vlabs-page-content px-5 pb-4 flex-grow-1 markdown-body">
+              <div class="text-center fix-spacing">
+                <h2 id="dimensionality-reduction-principal-component-analysis-pca">Dimensionality Reduction: Principal Component Analysis (PCA)</h2>
+          
+              </div>
+              <h3 id="1-introduction-to-principal-component-analysis">1. Introduction to Principal Component Analysis</h3>
+          <p>Principal Component Analysis (PCA) is a dimensionality reduction technique used in unsupervised learning to transform a dataset with many variables into a smaller set that still contains most of the essential information. PCA helps eliminate less important or redundant features, as a result it leads to faster training and inference. It also makes data visualization easier, especially for high-dimensional datasets. High-dimensional data often includes correlated features, which increase computational complexity and make interpretation difficult. PCA simplifies this problem by transforming the original variables into a new set of uncorrelated variables called principal components, while retaining as much of the original information as possible <strong>(Géron, 2019<a href="http://14.139.161.31/OddSem-0822-1122/Hands-On_Machine_Learning_with_Scikit-Learn-Keras-and-TensorFlow-2nd-Edition-Aurelien-Geron.pdf">🔗</a>; Jolliffe, 2002<a href="http://cda.psych.uiuc.edu/statistical_learning_course/Jolliffe%20I.%20Principal%20Component%20Analysis%20(2ed.,%20Springer,%202002)(518s)_MVsa_.pdf">🔗</a>)</strong>. Geometrically, PCA rotates the coordinate system of the dataset so that the new axes align with the directions of maximum variation in the data. </p>
+          <h3 id="2-objective-of-pca">2. Objective of PCA</h3>
+          <p>The main objective of PCA is to identify directions in the feature space along which the variance of the data is maximized. Features with higher variance carry more information about the structure of the dataset. Therefore, PCA identifies directions where the data varies the most and projects the data onto those directions. These directions represent the most significant patterns in the dataset. In high-dimensional datasets, many features may contain redundant information due to correlation. PCA identifies new axes called principal components, which represent directions of maximum variance in the data.</p>
+          <p>The dataset is initially represented in a high-dimensional space as shown in Figure 1. PCA then determines new orthogonal axes that capture the largest spread of the data. The original data points are projected onto these new axes, resulting in a reduced-dimensional dataset that still preserves most of the important information <strong>(Murphy, 2012<a href="https://share.google/38eh9o7vCwUuuvOYc">🔗</a>)</strong>.</p>
+          <h3 id="3-geometric-interpretation-of-pca">3. Geometric Interpretation of PCA</h3>
+          <p>Principal Component Analysis (PCA) can also be understood from a geometric perspective. In a multidimensional dataset, each feature represents an axis in a coordinate system. The data points are distributed within this high-dimensional space, often showing correlations among features.</p>
+          <p>PCA transforms the coordinate system by rotating the original axes to align with the directions of maximum variance in the data. These new axes are called principal components, and they provide a more compact representation of the dataset.</p>
+          <p>The first principal component (PC1) represents the direction along which the variance of the data is maximized. The second principal component (PC2) is orthogonal to the first and captures the second-largest variance. Subsequent principal components follow the same principle, each accounting for progressively smaller amounts of variance.</p>
+          <p>By projecting the original data points onto these new axes, PCA transforms the dataset into a new coordinate system that preserves the most significant patterns while reducing dimensionality. This geometric transformation allows complex high-dimensional data to be represented using fewer dimensions while retaining most of the important information.</p>
+          <p>As illustrated in Figure 1, PCA identifies the directions of maximum variance using eigenvectors derived from the covariance matrix and projects the data onto these principal components to obtain a lower-dimensional representation.</p>
+          <div align="center">
+          <img src="images/pca.jpg" alt="Geometric Interpretation of PCA" width="600">
+          <br>
+          <strong>Figure 1: Geometric interpretation of Principal Component Analysis (PCA) showing the transformation of high-dimensional data into principal components aligned with directions of maximum variance.</strong>
+          </div>
+          
+          <h3 id="4-mathematical-foundation">4. Mathematical Foundation</h3>
+          <p>The mathematical foundation of PCA lies in linear algebra, specifically in eigenvectors and eigenvalues. 
+          Eigenvectors define the directions of maximum variance in the data, while eigenvalues indicate the amount of variance explained by each direction <strong>(Jolliffe, 2002<a href="http://cda.psych.uiuc.edu/statistical_learning_course/Jolliffe%20I.%20Principal%20Component%20Analysis%20(2ed.,%20Springer,%202002)(518s)_MVsa_.pdf">🔗</a>)</strong>. </p>
+          <p>For a square matrix A, an eigenvector <strong>v</strong> and its corresponding eigenvalue <em>λ</em> satisfy the equation:</p>
+          <div align="center" style="margin: 20px 0;">
+              <span style="font-family: 'Times New Roman', 'Georgia', serif; font-size: 1.2em;">
+                  <i>A</i><b>v</b> = <i>λ</i><b>v</b>
+              </span>
+          </div>
+          
+          <p>In PCA, eigenvectors and eigenvalues are derived from the covariance matrix of the dataset. The covariance matrix captures the relationships between all pairs of features and indicates how features vary together. PCA analyzes this matrix to identify directions where the data spreads the most. 
+          Eigenvectors associated with larger eigenvalues correspond to more informative principal components because they capture more variance in the data <strong>(Murphy, 2012<a href="https://share.google/38eh9o7vCwUuuvOYc">🔗</a>; J. Brownlee, PCA for dimensionality reduction<a href="https://machinelearningmastery.com/principal-components-analysis-for-dimensionality-reduction-in-python/">🔗</a>)</strong>.</p>
+          <h3 id="5-dimensionality-reduction">5. Dimensionality Reduction</h3>
+          <p>By projecting the dataset onto a smaller number of important principal components, PCA reduces the number of features while keeping most of the useful information. The original high-dimensional data points are projected onto a lower-dimensional subspace formed by the selected principal components. Only the components that capture a large amount of variation in the data are selected. This process simplifies the dataset and helps reduce noise, making machine learning models easier to train and interpret <strong>(Géron, 2019<a href="http://14.139.161.31/OddSem-0822-1122/Hands-On_Machine_Learning_with_Scikit-Learn-Keras-and-TensorFlow-2nd-Edition-Aurelien-Geron.pdf">🔗</a>; GeeksforGeeks<a href="https://www.geeksforgeeks.org/data-analysis/principal-component-analysis-pca/">🔗</a>)</strong>.</p>
+          <h3 id="6-algorithm">6. Algorithm</h3>
+          <p>The following steps describe the standard workflow used to perform Principal Component Analysis.</p>
+          <p><strong>Step 1: Standardize the Data</strong>
+          Before applying PCA, the dataset is standardized so that each feature contributes equally to the analysis.</p>
+          <div align="center" style="margin: 20px 0;">
+              <span style="font-family: 'Times New Roman', 'Georgia', serif; font-size: 1.2em;">
+                  <i>X</i><sub>standardized</sub> = 
+                  <div style="display: inline-block; vertical-align: middle; text-align: center; margin: 0 3px;">
+                      <div style="border-bottom: 1.5px solid black; padding: 2px 8px;"><i>X</i> − <i>μ</i></div>
+                      <div style="padding: 2px 8px;"><i>σ</i></div>
+                  </div>
+              </span>
+          </div>
+          
+          <p>Where <em>μ</em> is the mean of the feature and <em>σ</em> is the standard deviation. After standardization, all features have a mean of 0 and a standard deviation of 1.</p>
+          <p><strong>Step 2: Compute the Covariance Matrix</strong>
+          After standardization, the covariance matrix is computed to measure how features vary with respect to each other.</p>
+          <div align="center" style="margin: 20px 0;">
+              <span style="font-family: 'Times New Roman', 'Georgia', serif; font-size: 1.2em;">
+                  Cov(<i>X</i>) = 
+                  <div style="display: inline-block; vertical-align: middle; text-align: center; margin: 0 3px;">
+                      <div style="border-bottom: 1.5px solid black; padding: 2px 8px;">1</div>
+                      <div style="padding: 2px 8px;"><i>n</i> − 1</div>
+                  </div>
+                  <i>X</i><sup>T</sup><i>X</i>
+              </span>
+          </div>
+          
+          <p>The resulting covariance matrix has a size of d × d, where d represents the number of features. Each element [i, j] indicates the covariance between feature i and feature j.</p>
+          <p><strong>Step 3: Calculate Eigenvalues and Eigenvectors</strong>
+          The eigenvalues and eigenvectors of the covariance matrix are computed to identify the principal directions of the data.</p>
+          <div align="center" style="margin: 20px 0;">
+              <span style="font-family: 'Times New Roman', 'Georgia', serif; font-size: 1.2em;">
+                  <i>A</i><b>v</b> = <i>λ</i><b>v</b>
+              </span>
+          </div>
+          
+          <p>Where <em>λ</em> represents the eigenvalue (amount of variance captured) and <strong>v</strong> represents the eigenvector (direction of the new axis).</p>
+          <p><strong>Step 4: Sort Eigenvectors by Eigenvalues</strong>
+          The eigenvectors are sorted in descending order based on their corresponding eigenvalues.
+          The eigenvector with the largest eigenvalue represents the direction of maximum variance, followed by the next largest, which is orthogonal to the first.</p>
+          <p><strong>Step 5: Compute Explained Variance Ratio</strong></p>
+          <div align="center" style="margin: 20px 0;">
+              <span style="font-family: 'Times New Roman', 'Georgia', serif; font-size: 1.2em;">
+                  Explained Variance Ratio = 
+                  <div style="display: inline-block; vertical-align: middle; text-align: center; margin: 0 3px;">
+                      <div style="border-bottom: 1.5px solid black; padding: 2px 8px;"><i>λ<sub>i</sub></i></div>
+                      <div style="padding: 2px 8px;">Σ <i>λ</i></div>
+                  </div>
+              </span>
+          </div>
+          
+          <p>This ratio indicates the proportion of total variance explained by each principal component. The explained variance ratios are often visualized using a scree plot to determine how many principal components should be retained.</p>
+          <p><strong>Step 6: Select Number of Principal Components (k)</strong>
+          The number of principal components k is selected based on the cumulative explained variance. A common approach is to select k such that the cumulative variance exceeds a predefined threshold (e.g., 95%).</p>
+          <p><strong>Step 7: Construct Projection Matrix</strong>
+          A projection matrix W is created using the top k eigenvectors as its columns.</p>
+          <div align="center" style="margin: 20px 0;">
+              <span style="font-family: 'Times New Roman', 'Georgia', serif; font-size: 1.2em;">
+                  <i>W</i> = [<b>v</b><sub>1</sub>, <b>v</b><sub>2</sub>, ..., <b>v</b><sub><i>k</i></sub>]
+              </span>
+          </div>
+          
+          <p><strong>Step 8: Transform the Dataset</strong></p>
+          <div align="center" style="margin: 20px 0;">
+              <span style="font-family: 'Times New Roman', 'Georgia', serif; font-size: 1.2em;">
+                  <i>X</i><sub>reduced</sub> = <i>X</i><sub>standardized</sub> <i>W</i>
+              </span>
+          </div>
+          
+          <p>The transformed dataset now has k dimensions instead of the original d dimensions while preserving the most important variance in the data.</p>
+          <h3 id="7-merits-of-pca">7. Merits of PCA</h3>
+          <ul>
+          <li>Makes large and complex datasets easier to analyze by reducing feature dimensionality.</li>
+          <li>Removes redundancy caused by correlated variables.</li>
+          <li>Improves computational efficiency for machine learning algorithms.</li>
+          <li>Helps visualize high-dimensional data in two or three dimensions.</li>
+          </ul>
+          <h3 id="8-demerits-of-pca">8. Demerits of PCA</h3>
+          <ul>
+          <li>The new features created by PCA (principal components) are linear combinations of original features and are difficult to interpret.</li>
+          <li>Some useful information may be lost during dimensionality reduction.</li>
+          <li>PCA assumes linear relationships between variables and may not work well for datasets with complex non-linear patterns.</li>
+          <li>PCA is sensitive to outliers, which can influence the direction of principal components.</li>
+          <li>PCA is sensitive to the scaling of the data, so proper standardization is required <strong>(Jolliffe, 2002<a href="http://cda.psych.uiuc.edu/statistical_learning_course/Jolliffe%20I.%20Principal%20Component%20Analysis%20(2ed.,%20Springer,%202002)(518s)_MVsa_.pdf">🔗</a>)</strong>.</li>
+          </ul>
           
             </div>
-              <p>Principal Component Analysis (PCA) is a dimensionality reduction technique used in unsupervised learning to transform a dataset with many variables into a smaller set that still contains most of the essential information. PCA helps us get rid of non-important features. It helps in faster training and inference, and even data visualization becomes easier. High-dimensional data often includes correlated features, which increase computational complexity and make data interpretation difficult. PCA addresses this problem by transforming the original variables into a new set of uncorrelated variables, called principal components, while retaining as much of the original information as possible.</p>
-          <h4 id="1-objective-of-pca">1. Objective of PCA</h4>
-          <p>The objective of PCA is to identify directions in the feature space along which the variance of the data is maximized. The diagram shows how a dataset with many correlated features is first represented in a high-dimensional space. PCA then identifies new axes called principal components that point in the directions of maximum data spread. The original data points are projected onto these new axes, resulting in a reduced-dimensional dataset that still preserves most of the important information.</p>
-          <h4 id="2-mathematical-foundation">2. Mathematical Foundation</h4>
-          <p>The mathematical foundation of PCA lies in linear algebra, specifically in eigenvectors and eigenvalues. Eigenvectors define the directions of maximum variance in the data, while eigenvalues indicate the amount of variance explained by each direction.</p>
-          <div style="text-align: center;">
-          <img src="images/pca.jpg" alt="PCA Visualization" style="max-height: 300px; width: auto;">
-          </div>
-          
-          <p>For a square matrix A, an eigenvector v and its corresponding eigenvalue λ satisfy the equation:</p>
-          <div style="text-align: center; margin: 15px 0;">
-          <span style="display: inline-block; padding: 10px 20px; border: 1px solid #ccc; background-color: #f9f9f9; font-style: italic;">Av = λv</span>
-          </div>
-          
-          <p>In PCA, eigenvectors and eigenvalues are derived from the covariance matrix of the data. Eigenvectors associated with larger eigenvalues correspond to more informative principal components. These eigenvectors are normalized to unit length before being used for projection.</p>
-          <h4 id="3-dimensionality-reduction">3. Dimensionality Reduction</h4>
-          <p>By projecting the data onto a smaller number of important principal components, PCA reduces the number of features while keeping most of the useful information. Only the components that capture a large amount of variation in the data are selected. This way, PCA makes the dataset simpler and easier to work with without losing its essential patterns.</p>
-          <h4 id="4-merits-of-using-pca">4. Merits of Using PCA</h4>
-          <ul>
-          <li>Makes large and complex data easier to handle by reducing the number of features</li>
-          <li>Removes repeated or similar information from the dataset</li>
-          <li>Helps models run faster and more efficiently</li>
-          </ul>
-          <h4 id="5-demerits-of-using-pca">5. Demerits of Using PCA</h4>
-          <ul>
-          <li>New features created by PCA are hard to understand and explain</li>
-          <li>Some useful information may be lost during reduction</li>
-          <li>Does not work well when data has non-linear patterns</li>
-          </ul>
-          <h4 id="6-algorithm">6. Algorithm</h4>
-          <ul>
-          <li><strong>Step 1:</strong> Standardize the data:<ul>
-          <li>For each feature: <code>x_scaled = (x - mean) / standard_deviation</code></li>
-          <li>Result: All features have mean=0, std=1</li>
-          </ul>
-          </li>
-          <li><strong>Step 2:</strong> Compute the Covariance Matrix:<ul>
-          <li><code>Cov(X) = (1/(n-1)) × XᵀX</code></li>
-          <li>Matrix size: d × d (where d = number of features)</li>
-          <li>Element [i,j] = covariance between feature i and feature j</li>
-          </ul>
-          </li>
-          <li><strong>Step 3:</strong> Calculate Eigenvalues and Eigenvectors:<ul>
-          <li>Solve: <code>Cov(X) × v = λ × v</code></li>
-          <li>λ = eigenvalue (represents variance captured)</li>
-          <li>v = eigenvector (represents new axis direction)</li>
-          </ul>
-          </li>
-          <li><strong>Step 4:</strong> Sort by Eigenvalues:<ul>
-          <li>Arrange eigenvectors in descending order of their eigenvalues</li>
-          <li>First eigenvector = direction of maximum variance</li>
-          <li>Second eigenvector = direction of second-most variance (orthogonal to first)</li>
-          </ul>
-          </li>
-          <li><strong>Step 5:</strong> Calculate Explained Variance Ratio:<ul>
-          <li>For each component: <code>ratio = λᵢ / Σλ</code></li>
-          <li>Cumulative ratio shows total variance captured by first k components</li>
-          </ul>
-          </li>
-          <li><strong>Step 6:</strong> Select Top k Components:<ul>
-          <li>Choose k such that cumulative variance ≥ threshold (e.g., 95%)</li>
-          <li><strong>OR</strong> choose k based on specific requirement</li>
-          </ul>
-          </li>
-          <li><strong>Step 7:</strong> Create Projection Matrix:<ul>
-          <li>W = matrix with top k eigenvectors as columns</li>
-          </ul>
-          </li>
-          <li><strong>Step 8:</strong> Transform Data:<ul>
-          <li><code>X_reduced = X_standardized × W</code></li>
-          <li>New data has k dimensions instead of original d dimensions</li>
-          </ul>
-          </li>
-          </ul>
-          
-          </div>
           <div class="bug-report-mobile">
               <bug-report id="bug-report" title="[BUG REPORT] DIMENSIONALITY REDUCTION: PRINCIPAL COMPONENT ANALYSIS (PCA)" page-type="text" context-info="{&quot;organisation&quot;:&quot;Virtual Labs&quot;,&quot;developer_institute&quot;:&quot;DLBG&quot;,&quot;expname&quot;:&quot;DIMENSIONALITY REDUCTION: PRINCIPAL COMPONENT ANALYSIS (PCA)&quot;,&quot;labname&quot;:&quot;Virtual Lab&quot;,&quot;phase&quot;:&quot;Testing&quot;}" checkbox-json="{&quot;text&quot;:[&quot;Insufficient Content&quot;],&quot;video&quot;:[&quot;Insufficient Content&quot;],&quot;assesment&quot;:[&quot;Incorrect Options&quot;,&quot;Incorrect Answer&quot;,&quot;Incorrect Question&quot;],&quot;assessment&quot;:[&quot;Incorrect Options&quot;,&quot;Incorrect Answer&quot;,&quot;Incorrect Question&quot;],&quot;simulation&quot;:[&quot;Simulation Not Working&quot;,&quot;Incorrect Results/Observations&quot;,&quot;Insufficient/Incorrect Instructions&quot;],&quot;DEFAULT&quot;:[&quot;Page Not Loading&quot;,&quot;Content Not Visible&quot;,&quot;Incorrect Content&quot;]}" position="override" button_style="
                           position: fixed; 
