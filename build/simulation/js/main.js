@@ -655,7 +655,12 @@ init();
 
 // PDF Download Logic
 function downloadPDF() {
-    // Redirect to the PDF file for download
-    window.open('./assets/EXP-10.pdf', '_blank');
+    // Create an invisible anchor element to trigger the download
+    const link = document.createElement('a');
+    link.href = 'experiment-10.pdf';
+    link.download = 'experiment-10.pdf'; // Forces download instead of opening in a new tab
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 }
 
