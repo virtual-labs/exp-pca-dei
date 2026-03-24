@@ -5,4 +5,3 @@
 3.	Murphy, K. P. (2012). Machine Learning: A Probabilistic Perspective. MIT Press.[🔗](https://share.google/38eh9o7vCwUuuvOYc)
 4.	GeeksforGeeks, “Principal Component Analysis (PCA),” Available:[🔗](https://www.geeksforgeeks.org/data-analysis/principal-component-analysis-pca/)
 5.	J. Brownlee, “Principal Component Analysis for Dimensionality Reduction in Python,” Machine Learning Mastery, Available:[🔗](https://machinelearningmastery.com/principal-components-analysis-for-dimensionality-reduction-in-python/)
-6.	Principal Component Analysis (Springer Series) by I.T. Jolliffe [🔗](https://link.springer.com/book/10.1007/b98835)
